@@ -1,0 +1,43 @@
+﻿@model LeaveManagementSystemProject.Models.LoginEntity
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Create", "Employee", FormMethod.Post))
+{
+    <table cellpadding="10">
+        <tr>
+            <td>
+                @Html.LabelFor(Model=>Model.UserName)
+            </td>
+            <td>
+                @Html.TextBoxFor(Model => Model.UserName)
+            </td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EmailId)</td>
+            <td>@Html.EditorFor(Model => Model.EmailId)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.role)</td>
+            <td>@Html.EditorFor(Model => Model.role)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Password)</td>
+            <td>@Html.EditorFor(Model => Model.Password)</td>
+        </tr>
+       
+        <tr>
+            <td>
+                @Html.ActionLink("Back to list", "Index")
+            </td>
+            <td>
+                <input type="submit" id="submitLogin" />
+            </td>
+        </tr>
+    </table>
+}
+

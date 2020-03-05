@@ -1,0 +1,25 @@
+﻿@model LeaveManagementSystemProject.Models.DepartmentModel
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm("Create", "Home", FormMethod.Post))
+{
+    <table cellpadding="10">       
+        <tr>
+            <td>@Html.LabelFor(Model => Model.DepartmentName)</td>
+            <td>@Html.EditorFor(Model => Model.DepartmentName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to list", "Index")
+            </td>
+            <td>
+                <input type="submit" id="addDepartment" />
+            </td>
+        </tr>
+    </table>
+}
+

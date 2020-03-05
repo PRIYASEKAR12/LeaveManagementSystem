@@ -1,0 +1,56 @@
+﻿@model IEnumerable<LeaveManagementSystemProject.Models.EmployeeModel>
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Display</h2>
+
+@Html.ActionLink("Create New Employee", "CreateEmployee")<br />
+
+
+<h2>Employee</h2>
+<table border="1">
+    <tr>
+        <td>Employee Name</td>
+        <td>Employee Age</td>
+        <td>Employee PhoneNumber</td>
+        <td>EmployeeEmail</td>
+        <td>DepartmentId</td>
+        <td>Designation Id</td>
+        <td>Manager Id</td>
+        <td>Choice</td>
+    </tr>
+    @foreach (var employee in (List<LeaveManagementSystemEntity.Employee>)TempData["Employees"])
+    {
+        <tr>
+            <td>
+                @employee.EmployeeName
+            </td>
+            <td>
+                @employee.EmployeeAge
+            </td>
+            <td>
+                @employee.EmployeePhoneNumber
+            </td>
+            <td>
+                @employee.EmployeeEmail
+            </td>
+            <td>
+                @employee.DepartmentId
+            </td>
+            <td>
+                @employee.DesignationId
+            </td>
+            <td>
+                @employee.ManagerId
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = employee.EmployeeId })              
+            </td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = employee.EmployeeId })</td>
+        </tr>
+    }
+</table>
+
+

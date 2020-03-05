@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <h2>Welcome to Leave Management system</h2>
+    <div>
+        @Html.ActionLink("Home", "Index", "Home")
+        @Html.ActionLink("AddEmployee", "CreateEmployee", "Home")
+        @Html.ActionLink("AddDepartment", "Create", "Home")
+        @RenderBody()
+    </div>
+</body>
+</html>

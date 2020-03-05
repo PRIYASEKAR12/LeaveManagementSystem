@@ -1,0 +1,29 @@
+﻿@model LeaveManagementSystemProject.Models.AccountModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    <table cellpadding="10">
+
+        <tr>
+            <td>@Html.LabelFor(Model => Model.UserName)</td>
+            <td>@Html.TextBoxFor(Model => Model.UserName, new { maxlength = 25 })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.Password)</td>
+            <td>@Html.PasswordFor(Model => Model.Password, new { maxlength = 25 })</td>
+        </tr>
+        <tr>
+
+            <td>
+                <input type="submit" id="Add" />
+            </td>
+        </tr>
+    </table>
+}
+
+
