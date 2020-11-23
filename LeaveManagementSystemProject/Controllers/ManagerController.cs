@@ -23,6 +23,7 @@ namespace LeaveManagementSystemProject.Controllers
         {
             string name = employeeBL.GetEmployeeNameByGmail(User.Identity.Name);
             int id = employeeBL.GetManagerIdByName(name);
+
             List<Employee> employee = employeeBL.GetEmployeeByManagerId(id);
             List<Leave> leaves = employeeBL.GetLeaveRequestByManager(employee);
             List<LeaveModel> leaveModels = new List<LeaveModel>();
