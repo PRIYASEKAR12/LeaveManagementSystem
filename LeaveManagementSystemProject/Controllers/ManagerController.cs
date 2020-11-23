@@ -25,6 +25,7 @@ namespace LeaveManagementSystemProject.Controllers
             int id = employeeBL.GetManagerIdByName(name);
 
             List<Employee> employee = employeeBL.GetEmployeeByManagerId(id);
+
             List<Leave> leaves = employeeBL.GetLeaveRequestByManager(employee);
             List<LeaveModel> leaveModels = new List<LeaveModel>();
             foreach (Leave leave in leaves)
