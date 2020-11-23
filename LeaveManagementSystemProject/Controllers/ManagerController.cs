@@ -18,7 +18,7 @@ namespace LeaveManagementSystemProject.Controllers
         {
             return View();
         }
-        //manager view the leave request of an employee
+        //manager view the leave request of an employees
         public ActionResult DisplayRequest()
         {
             string name = employeeBL.GetEmployeeNameByGmail(User.Identity.Name);
