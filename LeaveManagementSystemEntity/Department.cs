@@ -12,6 +12,7 @@ namespace LeaveManagementSystemEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
         public int DepartmentId { get; set; }
+
         [Required]
         [Index(IsUnique = true)]
         [MaxLength(40)]
