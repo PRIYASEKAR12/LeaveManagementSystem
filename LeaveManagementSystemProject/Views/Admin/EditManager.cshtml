@@ -1,0 +1,30 @@
+﻿@model LeaveManagementSystemProject.Models.ManagerModel
+
+@{
+    ViewBag.Title = "EditManager";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>EditManager</h2>
+@using (Html.BeginForm("UpdateManager", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.ManagerId)
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.ManagerName)</td>
+            <td>@Html.EditorFor(Model => Model.ManagerName)</td>
+        </tr>       
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "DisplayManager")
+            </td>
+            <td>
+                <input type="submit" id="submit" />
+            </td>
+        </tr>
+    </table>
+}
+

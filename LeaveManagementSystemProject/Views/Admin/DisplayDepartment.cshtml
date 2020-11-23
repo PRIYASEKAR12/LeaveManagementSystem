@@ -1,0 +1,27 @@
+﻿@model IEnumerable<LeaveManagementSystemEntity.Department>
+
+@{
+    ViewBag.Title = "DisplayDepartment";
+}
+
+<h2>DisplayDepartment</h2>
+
+<table border="1">
+    <tr>
+        <td>@Html.ActionLink("Create New Department", "Create")</td>
+    </tr>
+    @foreach (LeaveManagementSystemEntity.Department department in Model)
+    {
+        <tr>
+            <td>
+                @department.DepartmentName
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "EditManager", new { id = department.DepartmentId })
+            </td>
+            <td>@Html.ActionLink("Delete", "DeleteManager", new { id = department.DepartmentId })</td>
+        </tr>
+    }
+</table>
+

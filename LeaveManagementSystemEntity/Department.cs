@@ -10,8 +10,11 @@ namespace LeaveManagementSystemEntity
 {
     public class Department
     {
-        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
         public int DepartmentId { get; set; }
+        [Required]
+        [Index(IsUnique = true)]
+        [MaxLength(40)]
         public string DepartmentName { get; set; }
         public ICollection<Employee> Employees { get; set; }
     }

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<LeaveManagementSystemProject.Models.LeaveModel>
+
+@{
+    ViewBag.Title = "DisplayRequest";
+}
+
+<h2>DisplayRequest</h2>
+
+
+<table border="1">
+    <tr>
+        <td>@Html.ActionLink("Create New Employee", "CreateEmployee")</td>
+    </tr>
+    <tr>
+        <td>Employee Name</td>
+        <td>Employee Age</td>
+        <td>Employee PhoneNumber</td>
+        <td>EmployeeEmail</td>
+        <td>EmployeeGender</td>
+    </tr>
+    @foreach (LeaveManagementSystemProject.Models.LeaveModel request in Model)
+    {
+        @Html.HiddenFor(model => request.LeaveId);
+        <tr>
+            <td>
+                @request.EmployeeName
+            </td>
+            <td>
+                @request.LeaveType
+            </td>
+            <td>
+                @request.StartDate
+            </td>
+            <td>
+                @request.EndDate
+            </td>
+            <td>
+                @request.Status
+            </td>
+            <td>
+                @Html.ActionLink("Accept", "AcceptRequest", new { LeaveId = request.LeaveId})
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "DeleteRequest", new { LeaveId = request.LeaveId })
+            </td>
+        </tr>
+    }
+</table>
+
+

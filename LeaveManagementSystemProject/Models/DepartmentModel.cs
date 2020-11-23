@@ -8,7 +8,10 @@ namespace LeaveManagementSystemProject.Models
 {
     public class DepartmentModel
     {
-        [Required]
+        public int DepartmentId { get; set; }
+        [Required(ErrorMessage = "DepartmentName is required")]
+        [Display(Name = "Department")]
+        [RegularExpression("^[a-zA-Z0-9 ,.'@]+$", ErrorMessage = "Please Enter Valid Department")]
         public string DepartmentName { get; set; }
     }
 }

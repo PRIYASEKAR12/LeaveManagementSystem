@@ -1,0 +1,83 @@
+﻿@model LeaveManagementSystemProject.Models.EmployeeModel
+
+@{
+    ViewBag.Title = "CreateEmployee";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<h2>CreateEmployee</h2>
+@using (Html.BeginForm("CreateEmployee", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table cellpadding="10">
+        
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EmployeeName)</td>
+            <td>@Html.TextBoxFor(Model => Model.EmployeeName, new { @maxlength = "40" })</td>
+            <td>@Html.ValidationMessageFor(model => model.EmployeeName, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EmployeePhoneNumber)</td>
+            <td>@Html.TextBoxFor(Model => Model.EmployeePhoneNumber, new { @maxlength = "10" })</td>
+            <td>@Html.ValidationMessageFor(model => model.EmployeePhoneNumber, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EmployeeEmail)</td>
+            <td>@Html.TextBoxFor(Model => Model.EmployeeEmail, new { @maxlength = "250" })</td>
+            <td>@Html.ValidationMessageFor(model => model.EmployeeEmail, "", new { @style = "color:red"  })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EmployeeAge)</td>
+            <td>@Html.TextBoxFor(Model => Model.EmployeeAge,new { @maxlength = "3" })</td>
+            <td>@Html.ValidationMessageFor(model => model.EmployeeAge, "", new { @style = "color:red"})</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EmployeeGender)</td>
+            <td>
+            @Html.RadioButtonFor(model => model.EmployeeGender, "Male")
+            Male
+            @Html.RadioButtonFor(model => model.EmployeeGender, "Female")
+            Female
+            </td>
+            <td>@Html.ValidationMessageFor(model => model.EmployeeGender, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model=>model.Department)
+            </td>
+            <td>
+                @Html.DropDownListFor(model=>model.DepartmentId,(IEnumerable<SelectListItem>)ViewBag.Departments,"Choose department")
+            </td>
+            
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Manager)
+            </td>
+            <td>
+                @Html.DropDownListFor(model => model.ManagerId, (IEnumerable<SelectListItem>)ViewBag.Managers, "Choose Manager")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(model => model.Designation)
+            </td>
+
+
+            <td>
+                @Html.DropDownListFor(model => model.DesignationId, (IEnumerable<SelectListItem>)ViewBag.Designations, "Choose designation")
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to list", "DisplayEmployee")
+            </td>
+            <td>
+                <input type="submit" id="addEmployee" />
+            </td>
+        </tr>
+    </table>
+}
+

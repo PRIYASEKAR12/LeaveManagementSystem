@@ -1,0 +1,29 @@
+﻿@model LeaveManagementSystemProject.Models.DesignationModel
+
+@{
+    ViewBag.Title = "EditDesignation";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>EditDesignation</h2>
+@using (Html.BeginForm("UpdateDesignation", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.DesignationId)
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.DesignationName)</td>
+            <td>@Html.EditorFor(Model => Model.DesignationName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "DisplayManager")
+            </td>
+            <td>
+                <input type="submit" id="submit" />
+            </td>
+        </tr>
+    </table>
+}
+

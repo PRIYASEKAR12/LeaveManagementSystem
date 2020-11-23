@@ -5,9 +5,9 @@ using System.Data.Entity;
 
 namespace LeaveManagementSystemDAL
 {
-    public class DepartmentDbContext: DbContext
+    public class LeaveDBContext: DbContext
     {
-        public DepartmentDbContext() : base("Department")
+        public LeaveDBContext() : base("LeaveManagement")
         {
         }
         public DbSet<Department> Departments { get; set; }
@@ -15,6 +15,12 @@ namespace LeaveManagementSystemDAL
         public DbSet<Manager> Managers { get; set; }
         public DbSet<Designation> Designations { get; set; }
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<Leave> LeaveRequest { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Manager>().MapToStoredProcedures();
+        }
 
     }
 }

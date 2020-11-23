@@ -1,0 +1,29 @@
+﻿@model LeaveManagementSystemProject.Models.DepartmentModel
+
+@{
+    ViewBag.Title = "EditDepartment";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>EditDepartment</h2>
+@using (Html.BeginForm("UpdateDepartment","Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(Model => Model.DepartmentId)
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.DepartmentName)</td>
+            <td>@Html.EditorFor(Model => Model.DepartmentName)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Cancel", "DisplayDepartment")
+            </td>
+            <td>
+                <input type="submit" id="submit" />
+            </td>
+        </tr>
+    </table>
+}
+

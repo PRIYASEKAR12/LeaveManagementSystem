@@ -1,0 +1,29 @@
+﻿@model LeaveManagementSystemProject.Models.ManagerModel
+
+@{
+    ViewBag.Title = "CreateManager";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<h2>CreateManager</h2>
+@using (Html.BeginForm("CreateManager", "Admin", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table cellpadding="10">
+        <tr>
+            <td>@Html.LabelFor(Model => Model.ManagerName)</td>
+            <td>@Html.TextBoxFor(Model => Model.ManagerName, new { @maxlength = "30" })</td>
+            <td>@Html.ValidationMessageFor(model => model.ManagerName, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to list", "DisplayManager")
+            </td>
+            <td>
+                <input type="submit" id="addManager" />
+            </td>
+        </tr>
+    </table>
+}
+

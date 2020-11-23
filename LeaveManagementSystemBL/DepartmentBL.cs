@@ -8,7 +8,15 @@ using System.Threading.Tasks;
 
 namespace LeaveManagementSystemBL
 {
-    public class DepartmentBL
+    public interface IDepartmentBL
+    {
+        void AddDepartment(Department department);
+        IEnumerable<Department> GetDepartment();
+        void DeleteDepartment(int DepartmentId);
+        Department GetDepartmentId(int DesignationId);
+        void UpdateDepartment(Department department);
+    }
+    public class DepartmentBL:IDepartmentBL
     {
         DepartmentRepository repository = new DepartmentRepository();
         public void AddDepartment(Department department)
@@ -18,6 +26,18 @@ namespace LeaveManagementSystemBL
         public IEnumerable<Department> GetDepartment()
         {           
             return repository.GetDepartment();
+        }
+        public void DeleteDepartment(int DepartmentId)
+        {
+            repository.DeleteDepartment(DepartmentId);
+        }
+        public Department GetDepartmentId(int DesignationId)
+        {
+            return repository.EditDepartment(DesignationId);
+        }
+        public void UpdateDepartment(Department department)
+        {
+           repository.UpdateDepartment(department);
         }
     }
 }

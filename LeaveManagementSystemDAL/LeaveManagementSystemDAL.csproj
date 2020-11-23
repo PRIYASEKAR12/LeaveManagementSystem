@@ -10,10 +10,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>LeaveManagementSystemDAL</RootNamespace>
     <AssemblyName>LeaveManagementSystemDAL</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,10 +58,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DepartmentDbContext.cs" />
+    <Compile Include="LeaveDBContext.cs" />
     <Compile Include="DepartmentRepository.cs" />
     <Compile Include="EmployeeRepository.cs" />
-    <Compile Include="AccountRepository.cs" />
+    <Compile Include="Migrations\202011090804363_InitialCreate.cs" />
+    <Compile Include="Migrations\202011090804363_InitialCreate.designer.cs">
+      <DependentUpon>202011090804363_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011100728570_update.cs" />
+    <Compile Include="Migrations\202011100728570_update.designer.cs">
+      <DependentUpon>202011100728570_update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011181454082_ab.cs" />
+    <Compile Include="Migrations\202011181454082_ab.designer.cs">
+      <DependentUpon>202011181454082_ab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011181613242_change.cs" />
+    <Compile Include="Migrations\202011181613242_change.designer.cs">
+      <DependentUpon>202011181613242_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -72,6 +89,20 @@
       <Project>{2781F85B-BF23-41E9-B7E0-87C3E29A7C7B}</Project>
       <Name>LeaveManagementSystemEntity</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011090804363_InitialCreate.resx">
+      <DependentUpon>202011090804363_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011100728570_update.resx">
+      <DependentUpon>202011100728570_update.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011181454082_ab.resx">
+      <DependentUpon>202011181454082_ab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011181613242_change.resx">
+      <DependentUpon>202011181613242_change.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

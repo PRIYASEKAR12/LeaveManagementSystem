@@ -1,27 +1,27 @@
-﻿@model IEnumerable<LeaveManagementSystemProject.Models.EmployeeModel>
+﻿@model IEnumerable<LeaveManagementSystemEntity.Employee>
 
 @{
-    ViewBag.Title = "Display";
+    ViewBag.Title = "DisplayEmployee";
 }
 
-<h2>Display</h2>
+<h2>DisplayEmployee</h2>
 
-@Html.ActionLink("Create New Employee", "CreateEmployee")<br />
-
-
-<h2>Employee</h2>
 <table border="1">
+    <tr>
+        <td>@Html.ActionLink("Create New Employee", "CreateEmployee")</td>
+    </tr>
     <tr>
         <td>Employee Name</td>
         <td>Employee Age</td>
         <td>Employee PhoneNumber</td>
         <td>EmployeeEmail</td>
+        <td>EmployeeGender</td>
         <td>DepartmentId</td>
         <td>Designation Id</td>
         <td>Manager Id</td>
         <td>Choice</td>
     </tr>
-    @foreach (var employee in (List<LeaveManagementSystemEntity.Employee>)TempData["Employees"])
+    @foreach (LeaveManagementSystemEntity.Employee employee in Model)
     {
         <tr>
             <td>
@@ -37,20 +37,22 @@
                 @employee.EmployeeEmail
             </td>
             <td>
-                @employee.DepartmentId
+                @employee.EmployeeGender
             </td>
             <td>
-                @employee.DesignationId
+                @employee.Department.DepartmentName
             </td>
             <td>
-                @employee.ManagerId
+                @employee.Designation.DesignationName
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = employee.EmployeeId })              
+                @employee.Manager.ManagerName
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = employee.EmployeeId })
             </td>
             <td>@Html.ActionLink("Delete", "Delete", new { id = employee.EmployeeId })</td>
         </tr>
     }
 </table>
-
 

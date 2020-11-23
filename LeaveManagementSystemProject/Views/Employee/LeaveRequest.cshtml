@@ -1,0 +1,38 @@
+﻿@model LeaveManagementSystemProject.Models.LeaveModel
+@{
+    ViewBag.Title = "LeaveRequest";
+}
+
+<h2>LeaveRequest</h2>
+@using (Html.BeginForm("LeaveRequest", "Employee", FormMethod.Post))
+{
+
+    <table cellpadding="10">
+        @Html.HiddenFor(Model => Model.EmployeeId)
+        <tr>
+            <td>@Html.LabelFor(Model => Model.StartDate)</td>
+            <td>@Html.TextBoxFor(Model => Model.StartDate, new { @maxlength = "40" })</td>
+            <td>@Html.ValidationMessageFor(model => model.StartDate, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.EndDate)</td>
+            <td>@Html.TextBoxFor(Model => Model.EndDate, new { @maxlength = "10" })</td>
+            <td>@Html.ValidationMessageFor(model => model.EndDate, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(Model => Model.LeaveType)</td>
+            <td>@Html.TextBoxFor(Model => Model.LeaveType, new { @maxlength = "250" })</td>
+            <td>@Html.ValidationMessageFor(model => model.LeaveType, "", new { @style = "color:red" })</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Back to list", "DisplayEmployee")
+            </td>
+            <td>
+                <input type="submit" id="addEmployee" />
+            </td>
+        </tr>
+    </table>
+}
+
+
