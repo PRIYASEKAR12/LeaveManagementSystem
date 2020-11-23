@@ -27,6 +27,7 @@ namespace LeaveManagementSystemDAL
             }
         }
         public Department EditDepartment(int DepartmentId)
+
         {
             using (LeaveDBContext departmentContext = new LeaveDBContext())
             {
