@@ -14,20 +14,8 @@ namespace LeaveManagementSystemDAL
         {
             using (LeaveDBContext departmentContext = new LeaveDBContext())
             {
-                using (var trans = departmentContext.Database.BeginTransaction())
-                {
-                    try
-                    {
-                        departmentContext.Employees.Add(employee);
-                        departmentContext.SaveChanges();
-                        trans.Commit();
-                    }
-                    catch (Exception ex)
-                    {
-                        trans.Rollback();
-                        Console.WriteLine(ex.InnerException);
-                    }
-                }
+                departmentContext.Employees.Add(employee);
+                departmentContext.SaveChanges();
             }
         }
         public IEnumerable<Employee> GetEmployee()
@@ -74,9 +62,6 @@ namespace LeaveManagementSystemDAL
             LeaveDBContext departmentContext = new LeaveDBContext();
             return departmentContext.Designations.ToList();
         }
-
-
-
         public void DeleteDesignation(int DesignationId)
         {
             using (LeaveDBContext departmentContext = new LeaveDBContext())
@@ -105,9 +90,9 @@ namespace LeaveManagementSystemDAL
         {
             using (LeaveDBContext departmentContext = new LeaveDBContext())
             {
-                SqlParameter sql = new SqlParameter("@ManagerName", manager.ManagerName);
-                int count = departmentContext.Database.ExecuteSqlCommand("Manager_Insert @ManagerName", sql);
-                //departmentContext.Managers.Add(manager);
+                //SqlParameter sql = new SqlParameter("@ManagerName", manager.ManagerName);
+                //int count = departmentContext.Database.ExecuteSqlCommand("Manager_Insert @ManagerName", sql);
+                departmentContext.Managers.Add(manager);
                 departmentContext.SaveChanges();
             }
         }
@@ -124,10 +109,10 @@ namespace LeaveManagementSystemDAL
         {
             using (LeaveDBContext departmentContext = new LeaveDBContext())
             {
-                SqlParameter sql = new SqlParameter("@ManagerId", ManagerId);
-                int count = departmentContext.Database.ExecuteSqlCommand("Manager_Delete @ManagerId", sql);
-                //Employee employee = departmentContext.Employees.Find(ManagerId);
-                //departmentContext.Employees.Remove(employee);
+                //SqlParameter sql = new SqlParameter("@ManagerId", ManagerId);
+                //int count = departmentContext.Database.ExecuteSqlCommand("Manager_Delete @ManagerId", sql);
+                Employee employee = departmentContext.Employees.Find(ManagerId);
+                departmentContext.Employees.Remove(employee);
                 departmentContext.SaveChanges();
             }
         }
@@ -143,11 +128,11 @@ namespace LeaveManagementSystemDAL
         {
             using (LeaveDBContext departmentContext = new LeaveDBContext())
             {
-                SqlParameter sql = new SqlParameter("@ManagerId", manager.ManagerId);
-                SqlParameter sqlName = new SqlParameter("@ManagerName", manager.ManagerName);
-                var data = departmentContext.Database.ExecuteSqlCommand("Manager_Update @ManagerId,@ManagerName", sql, sqlName);
+                //SqlParameter sql = new SqlParameter("@ManagerId", manager.ManagerId);
+                //SqlParameter sqlName = new SqlParameter("@ManagerName", manager.ManagerName);
+                //var data = departmentContext.Database.ExecuteSqlCommand("Manager_Update @ManagerId,@ManagerName", sql, sqlName);
                 //int count = departmentContext.Database.ExecuteSqlCommand("Manager_Update @ManagerId", sql);
-                // departmentContext.Entry(manager).State = System.Data.Entity.EntityState.Modified;
+                departmentContext.Entry(manager).State = System.Data.Entity.EntityState.Modified;
                 departmentContext.SaveChanges();
             }
         }

@@ -154,7 +154,7 @@ namespace LeaveManagementSystemProject.Controllers
         {
             if (ModelState.IsValid)
             {
-               
+                employee.EmployeeId = employeemodel.EmployeeId;
                 employee.EmployeeName = employeemodel.EmployeeName;
                 employee.EmployeeAge = employeemodel.EmployeeAge;
                 employee.EmployeeEmail = employeemodel.EmployeeEmail;

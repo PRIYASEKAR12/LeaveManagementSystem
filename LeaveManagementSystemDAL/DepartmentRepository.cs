@@ -8,14 +8,19 @@ namespace LeaveManagementSystemDAL
     {
         public void AddDepartmentList(Department department)
         {
-            LeaveDBContext departmentContext = new LeaveDBContext();
-            departmentContext.Departments.Add(department);
-            departmentContext.SaveChanges();
+            using (LeaveDBContext departmentContext = new LeaveDBContext())
+            {
+                departmentContext.Departments.Add(department);
+                departmentContext.SaveChanges();
+            }
         }
         public IEnumerable<Department> GetDepartment()
         {
-            LeaveDBContext departmentContext = new LeaveDBContext();
-            return departmentContext.Departments.ToList();
+            using (LeaveDBContext departmentContext = new LeaveDBContext())
+            {
+                return departmentContext.Departments.ToList();
+            }
+            
         }
         public void DeleteDepartment(int DepartmentId)
         {

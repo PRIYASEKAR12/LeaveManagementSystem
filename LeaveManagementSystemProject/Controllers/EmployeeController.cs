@@ -28,6 +28,7 @@ namespace LeaveManagementSystemProject.Controllers
             leaveModel.EmployeeId = employeeBL.GetEmployeeIdByGmail(User.Identity.Name);
             return View(leaveModel);
         }
+        [ValidateAntiForgeryToken]
         [HttpPost]
         public ActionResult LeaveRequest(LeaveModel leaveModel)
         {

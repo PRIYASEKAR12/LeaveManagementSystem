@@ -1,4 +1,5 @@
 ﻿//using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -12,8 +13,8 @@ namespace LeaveManagementSystemEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity), Key()]
         public int LeaveId { get; set; }
-        public long StartDate { get; set; }
-        public long EndDate { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public string LeaveType { get; set; }
         public string Status { get; set; }
         public int EmployeeId { get; set; }

@@ -14,11 +14,11 @@ namespace LeaveManagementSystemProject.Models
 
         [Required(ErrorMessage = "Leave start date is required")]
         [Display(Name = "StartDate")]
-        public long StartDate { get; set; }
+        public DateTime StartDate { get; set; }
 
         [Required(ErrorMessage = "Leave End date is required")]
         [Display(Name = "End Date")]
-        public long EndDate { get; set; }
+        public DateTime EndDate { get; set; }
         [Required(ErrorMessage = "Leave type is required")]
         [Display(Name = "Leave Type")]
         public string LeaveType { get; set; }
